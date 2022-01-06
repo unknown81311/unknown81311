@@ -1,4 +1,4 @@
-![status image not available](https://github-readme-stats.vercel.app/api?username=unknown81311&show_icons=true&theme=kacho_ga&hide_border=none)
+![status image not available](https://github-readme-stats.vercel.app/api?username=unknown81311&show_icons=true&theme=kacho_ga&hide_border=none&bg_color=00000000)
 --
 **langauges / tools:**
 
