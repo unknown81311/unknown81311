@@ -14,3 +14,6 @@
 **projects im working on:**
 --
 ![status image not available](https://github-readme-stats.vercel.app/api/pin?username=Dr-Discord&repo=DrDiscord&theme=kacho_ga&hide_border=none&show_owner=false&bg_color=00000000)
+
+![Discord](https://img.shields.io/discord/864267123694370836?color=%23bf4a3f&style=for-the-badge)
+--
