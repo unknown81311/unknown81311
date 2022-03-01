@@ -16,5 +16,5 @@
 ![status image not available](https://github-readme-stats.vercel.app/api/pin?username=Dr-Discord&repo=DrDiscord&theme=kacho_ga&hide_border=none&show_owner=false&bg_color=00000000)
 
 
-<a target='_blank' href='https://discord.gg/yYJA3qQE5F'><img height="40" src="https://img.shields.io/discord/864267123694370836?color=%23bf4a3f&style=for-the-badge"></a>
+<a target="_blank" href='https://discord.gg/yYJA3qQE5F'><img height="40" src="https://img.shields.io/discord/864267123694370836?color=%23bf4a3f&style=for-the-badge"></a>
 --
