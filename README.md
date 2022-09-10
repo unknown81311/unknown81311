@@ -1,15 +1,18 @@
 ![status image not available](https://github-readme-stats.vercel.app/api?username=unknown81311&show_icons=true&theme=kacho_ga&hide_border=none&bg_color=00000000)
 ![](https://github-readme-stats.vercel.app/api/top-langs?username=unknown81311&theme=kacho_ga&hide_border=none&layout=compact&bg_color=00000000)
 
-**langauges / tools:**
+**langauges**
 --
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
-<code><img style="" height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code>
-<code><img height="20" src="https://user-images.githubusercontent.com/43104779/147869974-5acc5830-dfa4-436a-a490-810358472a25.png"></code>
-<code><img height="20" src="https://user-images.githubusercontent.com/43104779/147869785-b740a24c-e8ea-4a0a-91b7-7dd4c20774e9.png"></code>
-<code><img height="20" src="https://user-images.githubusercontent.com/43104779/147869816-f9dd6677-db53-4bef-9d9e-f96a194257af.png"></code>
-<code><img height="20" src="https://user-images.githubusercontent.com/43104779/147869911-eb02ed5c-4abc-41d0-82a2-c5c1656e54a8.png"></code>
-<code><img height="20" src="https://user-images.githubusercontent.com/43104779/147869912-f61aa9b4-b515-45ec-8df3-f0a3118b8a85.png"></code>
+<code><img alt="JAVASCRIPT" height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
+<code><img alt="PYTHON" height="20" src="https://user-images.githubusercontent.com/43104779/147869974-5acc5830-dfa4-436a-a490-810358472a25.png"></code>
+<code><img alt="HTML" height="20" src="https://user-images.githubusercontent.com/43104779/147869785-b740a24c-e8ea-4a0a-91b7-7dd4c20774e9.png"></code>
+<code><img alt="CSS" height="20" src="https://user-images.githubusercontent.com/43104779/147869816-f9dd6677-db53-4bef-9d9e-f96a194257af.png"></code>
+<code><img alt="PHP" height="20" src="https://user-images.githubusercontent.com/43104779/189496790-ac154659-ddae-443c-979f-727f71d97750.png"></code>
+<code><img alt="LUA" height="20" src="https://user-images.githubusercontent.com/43104779/189496841-b3f274d6-07ff-4688-834d-fae847c8cd4f.png"></code>
+<code><img alt="CMD" height="20" src="https://user-images.githubusercontent.com/43104779/189496949-064053ea-0a54-4a2c-943e-63760e8ff069.png"></code>
+<code><img alt="BASH" height="20" src="https://user-images.githubusercontent.com/43104779/189497128-9731a2de-2d2b-4eda-877c-cec9ae07cd48.png"></code>
+<code><img alt="VBS" height="20" src="https://user-images.githubusercontent.com/43104779/189497066-2e923b6a-2e30-4c1d-a3ac-c1df474df1e3.png"></code>
+<code><img alt="PS1" height="20" src="https://user-images.githubusercontent.com/43104779/189497080-975ab676-fdb7-494b-9c5b-dad00716004e.png"></code>
 
 **projects im working on:**
 --
