@@ -13,6 +13,8 @@
 <code><img alt="BASH" height="20" src="https://user-images.githubusercontent.com/43104779/189497128-9731a2de-2d2b-4eda-877c-cec9ae07cd48.png"></code>
 <code><img alt="VBS" height="20" src="https://user-images.githubusercontent.com/43104779/189497066-2e923b6a-2e30-4c1d-a3ac-c1df474df1e3.png"></code>
 <code><img alt="PS1" height="20" src="https://user-images.githubusercontent.com/43104779/189497080-975ab676-fdb7-494b-9c5b-dad00716004e.png"></code>
+<code><img alt="cpp" height="20" src="https://user-images.githubusercontent.com/43104779/191406507-6a830e4f-c3e5-4ca9-944c-592b6d2a79e6.png"></code>
+<code><img alt="c" height="20" src="https://user-images.githubusercontent.com/43104779/191406525-04d24d91-e016-4e20-8bcf-a1b76d0897d6.png"></code>
 
 **projects im working on:**
 --
