@@ -18,7 +18,5 @@
 
 **projects im working on:**
 --
-[![discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)]([https://discord.com/invite/neMncS2](https://discord.gg/yYJA3qQE5F))
-
 [![status image not available](https://github-readme-stats.vercel.app/api/pin?username=Dr-Discord&repo=Discord-Re-envisioned&theme=kacho_ga&hide_border=none&show_owner=false&bg_color=00000000)](https://github.com/unknown81311/Discord-Re-envisioned)
 
