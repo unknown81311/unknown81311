@@ -20,3 +20,4 @@
 --
 [![status image not available](https://github-readme-stats.vercel.app/api/pin?username=unknown81311&repo=dll-injector&theme=kacho_ga&hide_border=none&show_owner=false&bg_color=00000000)](https://github.com/unknown81311/dll-injector)
 
+![Snake animation](https://github.com/unknown81311/unknown81311/blob/output/github-contribution-grid-snake.svg)
