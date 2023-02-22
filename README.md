@@ -11,7 +11,11 @@
 ![CSS](https://img.shields.io/badge/-CSS-303030?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
 ![php](https://img.shields.io/badge/-PHP-303030?logo=php)&nbsp;
 ![lua](https://img.shields.io/badge/-lua-303030?logo=lua)&nbsp;
-![PowerShell](https://img.shields.io/badge/-PowerShell-303030?logo=PowerShell)&nbsp;
+![PowerShell](https://img.shields.io/badge/-PowerShell-303030?logo=PowerShell)\
+![Sublime Text](https://img.shields.io/badge/-Sublime%20Text-303030?logo=Sublime%20Text)&nbsp;
+![Visual Studio](https://img.shields.io/badge/-Visual%20Studio-303030?logo=Visual%20Studio)&nbsp;
+![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-303030?logo=Visual%20Studio%20Code)&nbsp;
+
 
 **projects im working on:**
 --
