@@ -1,36 +1,47 @@
 # generate_svg.py
 import os
 import svgwrite
-from github import Github
+from github import Github, GithubException
 
-# Get GitHub username from environment variable
-github_username = os.getenv("GITHUB_ACTOR", "Unknown User")
-
-# Authenticate with GitHub API using token
+# Get required env vars
+github_actor = os.getenv("GITHUB_ACTOR")
+github_repo = os.getenv("GITHUB_REPOSITORY")  # e.g., "owner/name"
 github_token = os.getenv("GITHUB_TOKEN")
-g = Github(github_token)
-user = g.get_user()
 
-# Calculate total stars, commits, PRs, issues
-total_stars = 0
-total_commits = 0
-total_prs = 0
-total_issues = 0
+# Validate
+if not github_actor or not github_repo or not github_token:
+    raise EnvironmentError("GITHUB_ACTOR, GITHUB_REPOSITORY, and GITHUB_TOKEN must be set")
 
-for repo in user.get_repos():
-    total_stars += repo.stargazers_count
-    if repo.owner.login == github_username:
-        total_commits += repo.get_commits(author=github_username).totalCount
-        total_prs += repo.get_pulls(state='all').totalCount
-        total_issues += repo.get_issues(state='all').totalCount
+# Initialize GitHub API
+try:
+    gh = Github(github_token)
+    repo = gh.get_repo(github_repo)
+except GithubException as e:
+    raise RuntimeError(f"GitHub API error: {e}")
+
+# Gather stats for this repo
+stars = repo.stargazers_count
+commits = repo.get_commits().totalCount
+prs = repo.get_pulls(state="all").totalCount
+issues = repo.get_issues(state="all").totalCount
 
 # Create SVG
-svg = svgwrite.Drawing(filename="github_username.svg", size=(600, 200))
-svg.add(svg.text(f"GitHub User: {github_username}", insert=(10, 30), fill="black", font_size="20"))
-svg.add(svg.text(f"Total Stars Earned: {total_stars}", insert=(10, 60), fill="black", font_size="16"))
-svg.add(svg.text(f"Total Commits (as of 2025): {total_commits}", insert=(10, 90), fill="black", font_size="16"))
-svg.add(svg.text(f"Total PRs: {total_prs}", insert=(10, 120), fill="black", font_size="16"))
-svg.add(svg.text(f"Total Issues: {total_issues}", insert=(10, 150), fill="black", font_size="16"))
-svg.save()
+width, height = 600, 200
+svg = svgwrite.Drawing(filename="github_stats.svg", size=(width, height))
 
-print("SVG created with GitHub stats.")
+# Add text lines
+lines = [
+    f"Repository: {github_repo}",
+    f"Stars: {stars}",
+    f"Commits (all): {commits}",
+    f"PRs (all): {prs}",
+    f"Issues (all): {issues}",
+]
+
+y = 30
+for line in lines:
+    svg.add(svg.text(line, insert=(10, y), fill="black", font_size="18"))
+    y += 30
+
+svg.save()
+print("SVG with current repo stats created: github_stats.svg")
