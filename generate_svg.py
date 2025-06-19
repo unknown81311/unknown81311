@@ -30,6 +30,10 @@ dwg = svgwrite.Drawing("github_stats.svg", size=(600, 240))
 
 # Add CSS animation via <style> in <defs>
 css = """
+svg {
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
 .fade {
   opacity: 0;
   animation: fadeIn 2s ease-out forwards;
