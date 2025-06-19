@@ -28,4 +28,4 @@
 
 ![GitHub Stats][stats]
 
-[stats]: https://github.com/unknown81311/unknown81311/raw/main/github_stats.svg
+![Stats animation](https://github.com/unknown81311/unknown81311/raw/main/github_stats.svg)
