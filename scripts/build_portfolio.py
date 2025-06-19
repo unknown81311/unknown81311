@@ -58,6 +58,8 @@ def main():
     width, height = 600, 800
     dwg = svgwrite.Drawing(args.output, size=(f"{width}px", f"{height}px"))
 
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
+    
     dwg.add(add_intro(dwg, width, height))
     dwg.add(embed_snake_svg(dwg, args.contrib, width, height))
     dwg.add(add_project_showcase(dwg, width, height))
