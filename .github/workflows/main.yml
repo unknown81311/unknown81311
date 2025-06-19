@@ -1,4 +1,4 @@
-name: Generate Animated Portfolio
+name: Build Animated Portfolio
 
 on:
   schedule:
@@ -9,50 +9,46 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      # 1) Check out your code
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
-      # 0) Install dependencies
-      - name: Install dependencies
-        run: |
-          pip install svgwrite PyGithub lxml
-  
+
+      # 2) Prepare a clean dist/ directory
       - name: Prepare dist directory
         run: |
-          # if dist exists as a file, delete it
+          # If dist exists as a file, remove it
           if [ -f dist ]; then rm dist; fi
-          # remove old folder and recreate
+          # Remove old directory (if any) and recreate
           rm -rf dist
-          mkdir -p dist
+          mkdir dist
 
-
-      # 1) Generate your own snake (or use Platane/snk)
-      - uses: Platane/snk@v3
+      # 3) Generate the snake.svg into dist/
+      - name: Generate contribution snake
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            dist/snake.svg
 
-      # 2) (Optional) Generate stats via API + custom script
-      - name: Fetch stats & build portfolio SVG
+      # 4) Install deps & build your portfolio SVG
+      - name: Build portfolio SVG
         run: |
           pip install svgwrite PyGithub
           python scripts/build_portfolio.py \
             --contrib dist/snake.svg \
             --output dist/portfolio.svg
 
-      # 3) Deploy to output branch yourself
-      - name: Commit and push output
+      # 5) Commit & push the dist/ files back to an output branch
+      - name: Deploy to output branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B output
           cp -r dist/* .
           git add .
-          git commit -m "Update portfolio at $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "No changes to commit"
+          git commit -m "Portfolio update $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
           git push -u origin output --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
