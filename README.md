@@ -22,6 +22,9 @@
 
 ## 📊 Repository Stats WIP
 
+![Animated GitHub Stats]https://github.com/unknown81311/unknown81311/blob/output/github_stats.svg)
+
+![Animated GitHub Stats](./github_stats.svg)
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="github-stats-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="github-stats.svg" />
