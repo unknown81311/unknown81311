@@ -2,8 +2,6 @@
 import os
 import svgwrite
 from github import Github, GithubException
-from svgwrite.base import Raw
-from svgwrite.container import Defs
 
 # Get environment variables
 github_actor = os.getenv("GITHUB_ACTOR")
@@ -28,9 +26,9 @@ prs = repo.get_pulls(state="all").totalCount
 issues = repo.get_issues(state="all").totalCount
 
 # Create SVG
-dwg = svgwrite.Drawing("github_stats.svg", size=("600px", "240px"))
+dwg = svgwrite.Drawing("github_stats.svg", size=(600, 240))
 
-# Add CSS animation
+# Add CSS animation via <style> in <defs>
 css = """
 .fade {
   opacity: 0;
@@ -41,25 +39,26 @@ css = """
   to   { opacity: 1; }
 }
 """
-defs = Defs()
-defs.add(Raw(f"<style>{css}</style>"))
-dwg.defs = defs
+# svgwrite supports style element
+style = dwg.style(css)
+dwg.defs.add(style)
 
-# Create group with fade-in
+# Create group with fade-in class
 grp = dwg.g(class_="fade")
-lines = [
+
+# Add text lines
+y = 30
+for text in [
     f"Repository: {github_repo}",
     f"Stars: {stars}",
     f"Commits: {commits}",
     f"PRs: {prs}",
-    f"Issues: {issues}"
-]
-
-y = 30
-for line in lines:
-    grp.add(dwg.text(line, insert=(10, y), font_size="18px", fill="black"))
+    f"Issues: {issues}" 
+]:
+    grp.add(dwg.text(text, insert=(10, y), fill="black", font_size="18px"))
     y += 30
 
+# Add group and save
 dwg.add(grp)
 dwg.save()
 print("Animated SVG with repo stats created: github_stats.svg")
