@@ -33,7 +33,11 @@ jobs:
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git pull --rebase
+        # Make sure local main exactly matches remote
+        git fetch origin main
+        git reset --hard origin/main
+        # (now your working tree is clean)
         git add github_stats.svg
-        git commit -m "Update repo stats SVG" || echo "No changes to commit"
+        git commit -m "Update animated stats SVG" || echo "No changes to commit"
         git push
+
