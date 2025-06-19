@@ -2,34 +2,35 @@
 import os
 import svgwrite
 from github import Github, GithubException
+from svgwrite.base import Raw
+from svgwrite.container import Defs
 
-# Get required env vars
+# Get environment variables
 github_actor = os.getenv("GITHUB_ACTOR")
-github_repo = os.getenv("GITHUB_REPOSITORY")  # e.g., "owner/name"
+github_repo = os.getenv("GITHUB_REPOSITORY")
 github_token = os.getenv("GITHUB_TOKEN")
 
 # Validate
 if not github_actor or not github_repo or not github_token:
     raise EnvironmentError("GITHUB_ACTOR, GITHUB_REPOSITORY, and GITHUB_TOKEN must be set")
 
-# Initialize GitHub API
+# GitHub API setup
 try:
     gh = Github(github_token)
     repo = gh.get_repo(github_repo)
 except GithubException as e:
     raise RuntimeError(f"GitHub API error: {e}")
 
-# Gather stats for this repo
+# Fetch stats
 stars = repo.stargazers_count
 commits = repo.get_commits().totalCount
 prs = repo.get_pulls(state="all").totalCount
 issues = repo.get_issues(state="all").totalCount
 
-# Create SVG with CSS animation
-width, height = 600, 240
-dwg = svgwrite.Drawing(filename="github_stats.svg", size=(width, height))
+# Create SVG
+dwg = svgwrite.Drawing("github_stats.svg", size=("600px", "240px"))
 
-# Add CSS for fade-in effect
+# Add CSS animation
 css = """
 .fade {
   opacity: 0;
@@ -40,28 +41,25 @@ css = """
   to   { opacity: 1; }
 }
 """
-dwg.defs.add(dwg.raw(f"<style>{css}</style>"))
+defs = Defs()
+defs.add(Raw(f"<style>{css}</style>"))
+dwg.defs = defs
 
-# Create group with fade-in animation
-group = dwg.g(class_="fade")
-
-# Add stats text
+# Create group with fade-in
+grp = dwg.g(class_="fade")
 lines = [
     f"Repository: {github_repo}",
     f"Stars: {stars}",
     f"Commits: {commits}",
     f"PRs: {prs}",
-    f"Issues: {issues}",
+    f"Issues: {issues}"
 ]
 
 y = 30
 for line in lines:
-    group.add(dwg.text(line, insert=(10, y), fill="black", font_size="18px"))
+    grp.add(dwg.text(line, insert=(10, y), font_size="18px", fill="black"))
     y += 30
 
-# Add group to SVG
-dwg.add(group)
-
-# Save SVG
+dwg.add(grp)
 dwg.save()
 print("Animated SVG with repo stats created: github_stats.svg")
