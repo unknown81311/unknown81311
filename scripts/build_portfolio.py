@@ -4,7 +4,6 @@ import os
 import svgwrite
 import argparse
 from datetime import datetime
-from lxml import etree
 
 
 def add_intro(dwg, width, height):
