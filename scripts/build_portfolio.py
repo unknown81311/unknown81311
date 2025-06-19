@@ -18,11 +18,10 @@ def add_intro(dwg, width, height):
 
 
 def embed_snake_svg(dwg, snake_path, width, height):
-    with open(snake_path, 'r') as f:
-        snake_svg = etree.fromstring(f.read().encode())
-        embedded = dwg.g(id="snake")
-        embedded.add(dwg.image(href=snake_path, insert=(0, height * 0.3), size=(width, height * 0.3)))
-        return embedded
+    if not os.path.exists(snake_path):
+        print(f"⚠️ Warning: Snake SVG not found at: {snake_path}")
+        return dwg.g(id="snake-placeholder")  # Empty placeholder group
+    return dwg.image(href=snake_path, insert=(0, height * 0.3), size=(width, height * 0.3))
 
 
 def add_project_showcase(dwg, width, height):
@@ -55,18 +54,19 @@ def main():
     parser.add_argument("--output", required=True, help="Output SVG file path")
     args = parser.parse_args()
 
+    # Ensure output directory exists
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
+
     width, height = 600, 800
     dwg = svgwrite.Drawing(args.output, size=(f"{width}px", f"{height}px"))
 
-    os.makedirs(os.path.dirname(args.output), exist_ok=True)
-    
     dwg.add(add_intro(dwg, width, height))
     dwg.add(embed_snake_svg(dwg, args.contrib, width, height))
     dwg.add(add_project_showcase(dwg, width, height))
     dwg.add(add_skills_section(dwg, width, height))
 
     dwg.save()
-    print(f"SVG saved to {args.output}")
+    print(f"✅ SVG saved to {args.output}")
 
 
 if __name__ == "__main__":
