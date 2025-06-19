@@ -25,23 +25,34 @@ commits = repo.get_commits().totalCount
 prs = repo.get_pulls(state="all").totalCount
 issues = repo.get_issues(state="all").totalCount
 
-# Create SVG
-width, height = 600, 200
-svg = svgwrite.Drawing(filename="github_stats.svg", size=(width, height))
+# Create SVG with fade-in animation
+width, height = 600, 240
+dwg = svgwrite.Drawing(filename="github_stats.svg", size=(width, height))
 
-# Add text lines
+g = dwg.g(opacity=0)
+# Animate group opacity from 0 to 1 over 2 seconds
+g.add(dwg.animate(
+    attributeName="opacity",
+    from_="0", to="1",
+    dur="2s",
+    fill="freeze"
+))
+
+# Add text lines to group
 lines = [
     f"Repository: {github_repo}",
     f"Stars: {stars}",
-    f"Commits (all): {commits}",
-    f"PRs (all): {prs}",
-    f"Issues (all): {issues}",
+    f"Commits: {commits}",
+    f"PRs: {prs}",
+    f"Issues: {issues}",
 ]
 
 y = 30
 for line in lines:
-    svg.add(svg.text(line, insert=(10, y), fill="black", font_size="18"))
+    g.add(dwg.text(line, insert=(10, y), fill="black", font_size="18"))
     y += 30
 
-svg.save()
-print("SVG with current repo stats created: github_stats.svg")
+# Add group to drawing and save
+dwg.add(g)
+dwg.save()
+print("Animated SVG with repo stats created: github_stats.svg")
