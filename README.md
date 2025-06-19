@@ -28,7 +28,4 @@
 
 ![GitHub Stats][stats]
 
-
-![Stats animation](https://github.com/unknown81311/unknown81311/blob/output/github_stats.svg)
-
-![Stats animation](https://github.com/unknown81311/unknown81311/blob/github_stats.svg)
+![Animated GitHub Stats](./github_stats.gif)
