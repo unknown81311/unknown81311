@@ -25,20 +25,27 @@ commits = repo.get_commits().totalCount
 prs = repo.get_pulls(state="all").totalCount
 issues = repo.get_issues(state="all").totalCount
 
-# Create SVG with fade-in animation
+# Create SVG with CSS animation
 width, height = 600, 240
 dwg = svgwrite.Drawing(filename="github_stats.svg", size=(width, height))
 
-g = dwg.g(opacity=0)
-# Animate group opacity from 0 to 1 over 2 seconds
-g.add(dwg.animate(
-    attributeName="opacity",
-    from_="0", to="1",
-    dur="2s",
-    fill="freeze"
-))
+# Add CSS for fade-in effect
+css = """
+.fade {
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+"""
+dwg.defs.add(dwg.raw(f"<style>{css}</style>"))
 
-# Add text lines to group
+# Create group with fade-in animation
+group = dwg.g(class_="fade")
+
+# Add stats text
 lines = [
     f"Repository: {github_repo}",
     f"Stars: {stars}",
@@ -49,10 +56,12 @@ lines = [
 
 y = 30
 for line in lines:
-    g.add(dwg.text(line, insert=(10, y), fill="black", font_size="18"))
+    group.add(dwg.text(line, insert=(10, y), fill="black", font_size="18px"))
     y += 30
 
-# Add group to drawing and save
-dwg.add(g)
+# Add group to SVG
+dwg.add(group)
+
+# Save SVG
 dwg.save()
 print("Animated SVG with repo stats created: github_stats.svg")
