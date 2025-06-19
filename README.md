@@ -28,4 +28,4 @@
 
 ![GitHub Stats][stats]
 
-![Animated GitHub Stats](./github_stats.gif)
+![Animated GitHub Stats](./github_stats.svg)
