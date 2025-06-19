@@ -34,14 +34,14 @@ jobs:
             --output dist/portfolio.svg
 
       # 3) Deploy to output branch yourself
-      - name: Deploy to output
+      - name: Commit and push output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B output
           cp -r dist/* .
           git add .
-          git commit -m "Portfolio update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git commit -m "Update portfolio at $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "No changes to commit"
           git push -u origin output --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
