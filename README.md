@@ -21,3 +21,11 @@
 ---
 
 ![Snake animation](https://github.com/unknown81311/unknown81311/blob/output/github-contribution-grid-snake.svg)
+
+---
+
+## 📊 Repository Stats WIP
+
+![GitHub Stats][stats]
+
+[stats]: https://github.com/unknown81311/unknown81311/raw/main/github_stats.svg
