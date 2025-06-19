@@ -20,10 +20,12 @@ jobs:
 
       # 1) Generate your own snake (or use Platane/snk)
       - uses: Platane/snk@v3
-        id: snake
         with:
           github_user_name: ${{ github.repository_owner }}
-          svg_out_path: dist/snake.svg
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       # 2) (Optional) Generate stats via API + custom script
       - name: Fetch stats & build portfolio SVG
