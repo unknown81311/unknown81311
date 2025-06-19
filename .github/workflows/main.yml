@@ -17,6 +17,15 @@ jobs:
       - name: Install dependencies
         run: |
           pip install svgwrite PyGithub lxml
+  
+      - name: Prepare dist directory
+        run: |
+          # if dist exists as a file, delete it
+          if [ -f dist ]; then rm dist; fi
+          # remove old folder and recreate
+          rm -rf dist
+          mkdir -p dist
+
 
       # 1) Generate your own snake (or use Platane/snk)
       - uses: Platane/snk@v3
