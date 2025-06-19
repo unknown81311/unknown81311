@@ -22,7 +22,4 @@
 
 ## 📊 Repository Stats WIP
 
-
-![Animated GitHub Stats](./test.svg)
-
 ![Animated GitHub Stats](./github_stats.svg)
