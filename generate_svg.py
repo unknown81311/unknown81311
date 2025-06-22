@@ -36,11 +36,15 @@ svg {
 
 .fade {
   opacity: 0;
-  animation: fadeIn 2s ease-out forwards;
+  animation: transitionIn 2s ease-out forwards;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@keyframes transitionIn {
+  from {
+    transform: translateY(-50px);
+  }
+  to   {
+    transform: translateY(0);
+  }
 }
 """
 # svgwrite supports style element
